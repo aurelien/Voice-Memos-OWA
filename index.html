@@ -1,0 +1,94 @@
+
+<html>
+
+  <head>
+    <title>Demo</title>
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="js/recorder.js"></script>
+
+    <script type="text/javascript">
+	
+	$(document).ready(function (){
+	
+	
+
+	var video=document.querySelector('#basic-stream');
+	var localMediaStream = null;
+	var audioRecord;
+	
+
+
+    navigator.getMedia = ( 	navigator.getUserMedia ||             
+							navigator.webkitGetUserMedia ||                      
+							navigator.mozGetUserMedia ||    
+							navigator.msGetUserMedia); 
+							   
+	$("#record").click(function ()
+        {
+
+
+					   
+			   navigator.getMedia (   
+				   { 
+				   audio: true   
+				   },   
+				
+				   function(stream) {     
+				   	
+						video.src = window.URL.createObjectURL(stream);
+						$("#test").html(video.src);	
+							
+						video.play(); 
+						video.controls=true;
+				
+						localMediaStream=stream;
+						//audioRecord =	new mediaRecorder(stream);  //mediaRecorder is not defined
+						//audioRecord.record(4000);
+						//ne fonctionne pas voici le lien de W3
+						// https://dvcs.w3.org/hg/dap/raw-file/tip/media-stream-capture/MediaRecorder.html
+
+						video.onloadedmetadata = function(e) {  
+							// Do something with the video here.      
+						};  
+			  
+					},    
+				  
+				   function(err) {   
+				   console.log("The following error occured: " + err);  
+					} 
+			   
+			   );
+			   		   	   
+	});
+	
+	
+	$("#stopreccord").click(function ()
+        {
+    
+			localMediaStream.stop();
+				
+		 });
+
+
+});
+
+  
+
+  </script>
+  </head>
+  
+  <body >
+
+			<video id="basic-stream" class="videostream" autoplay></video>
+			
+			<p><button id="record">Capture video</button> <button id="stopreccord">Stop</button></p>
+			
+			
+			<div id="test"></div>
+
+  
+  </body>
+
+</html>
