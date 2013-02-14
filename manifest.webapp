@@ -1,0 +1,32 @@
+{
+  "version": "0.1",
+  "name": "Memo Voice",
+  "description": "Création d’une application qui enregistre la voix de l’utilisateur via le téléphone configuré sous Firefox OS. Les enregistrements vocaux pourront être réécoutable et archivés (date & heure)",
+  "launch_path": "/index-interface.html",
+  "icons": {
+    "16": "/img/shortcut/icons/mortar-16.png",
+    "48": "/img/shortcut/icons/mortar-48.png",
+    "128": "/img/shortcut/icons/mortar-128.png"
+  },
+  "developer": {
+    "name": "Julian DEMAREST & Aurélien GEANT",
+    "url": "https://github.com/aurelien/Voice-Memos-OWA"
+  },
+  "installs_allowed_from": ["*"],
+  "appcache_path": "/cache.manifest",
+  "locales": {
+    "es": {
+      "description": "Su nueva aplicación impresionante Open Web",
+      "developer": {
+        "url": "http://yourawesomeapp.com"
+      }
+    },
+    "it": {
+      "description": "Il vostro nuovo fantastico Open Web App",
+      "developer": {
+        "url": "http://yourawesomeapp.com"
+      }
+    }
+  },
+  "default_locale": "en"
+}
